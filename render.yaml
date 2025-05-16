@@ -1,8 +1,0 @@
-
-services:
-  - type: web
-    name: bitnode-crypto-webapp-phase3
-    env: python
-    buildCommand: ""
-    startCommand: "python app.py"
-    plan: free
