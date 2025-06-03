@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitget Crypto Signals</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        h1 { text-align: center; }
+        .signal-card {
+            background: white; border-radius: 8px; padding: 15px; margin: 10px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 90%; max-width: 500px;
+        }
+        .strong { color: green; font-weight: bold; }
+        .weak { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Bitget Crypto Signals</h1>
+    {% for s in signals %}
+    <div class="signal-card">
+        <h3>{{ s.coin }}</h3>
+        <p>Price: {{ s.price }}</p>
+        <p>Signal: <span class="{{ 'strong' if 'STRONG' in s.signal else 'weak' }}">{{ s.signal }}</span></p>
+        <p>Strength: {{ s.strength }}</p>
+        <p>Timeframe: {{ s.timeframe }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
