@@ -1,20 +1,40 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Bitnode Crypto Signal Pro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-        body { font-family: Arial; padding: 2em; background: #f7f7f7; color: #333; }
-        .card { background: white; padding: 2em; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #444; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; text-align: center; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 10px; max-width: 1000px; margin: auto; }
+        iframe { width: 100%; height: 400px; border: none; margin-bottom: 20px; }
+        h1 { margin-bottom: 10px; }
+        .time { font-weight: bold; margin-bottom: 20px; }
+        .section-title { font-size: 20px; margin: 30px 0 10px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>📈 Bitnode Crypto Signal Pro</h1>
-        <p>Real-time dashboard with live crypto signals</p>
-        <p><strong>Page updated at:</strong> {{ time }}</p>
+    <div class="container">
+        <h1>📊 Bitnode Crypto Signal Pro</h1>
+        <div class="time">Last updated: {{ time }}</div>
+
+        <!-- Live TradingView Widgets -->
+        <iframe src="https://s.tradingview.com/embed-widget/symbol-overview/?symbols=BINANCE:BTCUSDT,BINANCE:ETHUSDT,BINANCE:BNBUSDT,BINANCE:DOGEUSDT,BINANCE:SOLUSDT&locale=en" allowtransparency="true" scrolling="no"></iframe>
+
+        <iframe src="https://s.tradingview.com/embed-widget/technical-analysis/?symbol=BINANCE:BTCUSDT&interval=1&locale=en" allowtransparency="true" scrolling="no"></iframe>
+
+        <!-- On-Chain Data -->
+        <div class="section-title">📡 On-Chain Network Data (Live)</div>
+        <iframe src="https://www.blockchain.com/explorer/charts/mempool-size" height="300"></iframe>
+        <iframe src="https://www.blockchain.com/explorer/charts/hash-rate" height="300"></iframe>
+        <iframe src="https://www.blockchain.com/explorer/charts/n-unique-addresses" height="300"></iframe>
+        <iframe src="https://www.blockchain.com/explorer/charts/n-transactions-total" height="300"></iframe>
     </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.reload();
+        }, 60000); // Refresh every 1 minute
+    </script>
 </body>
 </html>
